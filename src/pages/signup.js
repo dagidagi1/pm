@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
+import User from "./user";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -54,11 +55,16 @@ export default function SignUp() {
     return (
       email.length > 5 &&
       password.length > 5 &&
-      password.localeCompare(conPassword) == 0 &&
+      password.localeCompare(conPassword) === 0 &&
       fName.length > 1 &&
       lName.length > 2 &&
       phone.length > 9
     );
+  }
+  let userList = new Array();
+  function creatUser(fname, lname, phone, email, password, key_id) {
+    const user = new User(fname, lname, phone, email, password, key_id);
+    userList.push(user);
   }
   return (
     <Container component="main" maxWidth="xs">
@@ -177,6 +183,7 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
             disabled={!validate()}
+            onClick={creatUser(fName, lName, phone, email, password, 123)}
           >
             Sign Up
           </Button>
