@@ -2,8 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -12,21 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
-import { SingleBedOutlined } from "@material-ui/icons";
-import SignIn from "./signin";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -61,7 +44,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  const [fName, setFname] = React.useState("");
+  const [lName, setLname] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [conPassword, setConPassword] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  function validate() {
+    return (
+      email.length > 5 &&
+      password.length > 5 &&
+      password.localeCompare(conPassword) == 0 &&
+      fName.length > 1 &&
+      lName.length > 2 &&
+      phone.length > 9
+    );
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -80,7 +78,7 @@ export default function SignUp() {
                 fullWidth
                 id="firstName"
                 label="First Name"
-                autoFocus
+                onChange={(e) => setFname(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -92,6 +90,7 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={(e) => setLname(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -104,6 +103,7 @@ export default function SignUp() {
                 label="Phone Number"
                 name="phoneNumber"
                 autoComplete="P#"
+                onChange={(e) => setPhone(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -116,6 +116,7 @@ export default function SignUp() {
                 type="email"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -128,6 +129,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -140,6 +142,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="Confirm-Password"
+                onChange={(e) => setConPassword(e.target.value)}
               />
             </Grid>
             <Grid>
@@ -173,7 +176,7 @@ export default function SignUp() {
             backgroundColor="blue"
             color="primary"
             className={classes.submit}
-            className={classes.button}
+            disabled={!validate()}
           >
             Sign Up
           </Button>

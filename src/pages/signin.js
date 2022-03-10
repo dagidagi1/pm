@@ -41,7 +41,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  function validate() {
+    return email.length > 5 && password.length > 5;
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -61,6 +65,7 @@ export default function SignUp() {
                 type="email"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -73,6 +78,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -83,7 +89,7 @@ export default function SignUp() {
             backgroundColor="blue"
             color="primary"
             className={classes.submit}
-            //className={classes.button}
+            disabled={!validate()}
           >
             Sign in
           </Button>
