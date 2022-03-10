@@ -6,6 +6,7 @@ import Home from "./pages";
 import About from "./pages/about";
 import Teams from "./pages/team";
 import SignUp from "./pages/signup";
+import SignIn from "./pages/signin";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Teams />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>
   );
