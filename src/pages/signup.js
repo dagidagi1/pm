@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +12,7 @@ import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import User from "./user";
+import SignIn from "./signin";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -44,6 +46,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+  let navigate = useNavigate();
+  const routChange = (path) => {
+    navigate(path);
+  };
   const classes = useStyles();
   const [fName, setFname] = React.useState("");
   const [lName, setLname] = React.useState("");
@@ -183,7 +189,10 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
             disabled={!validate()}
-            onClick={creatUser(fName, lName, phone, email, password, 123)}
+            onClick={() => {
+              //creatUser(fName, lName, phone, email, password, 123);
+              routChange("/signin");
+            }}
           >
             Sign Up
           </Button>
