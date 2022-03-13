@@ -18,24 +18,21 @@ executors:
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
 jobs:
-  test-1:
+  linter:
+    executor: node/default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run lint
+  test1:
     executor: node/default
     steps:
       - checkout
       - run: npm install
       - run: npm run test
-      - run: npm run lint
+
 workflows:
   my-custom-workflow:
     jobs:
-      - test-1
-  
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    jobs:
-      - node/test:
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-          version: '16.10'
-          # If you are using yarn, change the line below from "npm" to "yarn"
-          pkg-manager: npm
+      - test1
+      - linter
