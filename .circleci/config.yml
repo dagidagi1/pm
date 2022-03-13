@@ -11,7 +11,7 @@ orbs:
 executors:
   my-custom-executor:
     docker:
-      - image: cimg/node
+      - image: cimg/node:17.6.0
         auth:
           # ensure you have first added these secrets
           # visit app.circleci.com/settings/project/github/betsalelkogo/ProjectManagement/environment-variables
