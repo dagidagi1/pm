@@ -1,56 +1,56 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import IconButton from "@material-ui/core/IconButton";
-import PhotoCamera from "@material-ui/icons/PhotoCamera";
-import User from "./user";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import User from './user';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
   button: {
-    color: "black",
+    color: 'black',
   },
   root: {
-    "& > *": {
+    '& > *': {
       margin: theme.spacing(1),
     },
   },
   input: {
-    display: "none",
+    display: 'none',
   },
 }));
 
 export default function SignUp() {
   const classes = useStyles();
-  const [fName, setFname] = React.useState("");
-  const [lName, setLname] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [conPassword, setConPassword] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [fName, setFname] = React.useState('');
+  const [lName, setLname] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [conPassword, setConPassword] = React.useState('');
+  const [password, setPassword] = React.useState('');
   function validate() {
     return (
       email.length > 5 &&
@@ -61,9 +61,9 @@ export default function SignUp() {
       phone.length > 9
     );
   }
-  let userList = new Array();
-  function creatUser(fname, lname, phone, email, password, key_id) {
-    const user = new User(fname, lname, phone, email, password, key_id);
+  const userList = [];
+  function creatUser(fname, lname, phone, email, password, keyId) {
+    const user = new User(fname, lname, phone, email, password, keyId);
     userList.push(user);
   }
   return (
@@ -167,9 +167,9 @@ export default function SignUp() {
                   >
                     <PhotoCamera />
                   </IconButton>
-                  <p style={{ fontSize: "15px", float: "right" }}>
-                    {" "}
-                    Profile Picture*{" "}
+                  <p style={{fontSize: '15px', float: 'right'}}>
+                    {' '}
+                    Profile Picture*{' '}
                   </p>
                 </label>
               </div>

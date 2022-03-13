@@ -1,12 +1,12 @@
-import React from "react";
-import "./App.css";
-import Navbar from "./Navbar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages";
-import About from "./pages/about";
-import Teams from "./pages/team";
-import SignUp from "./pages/signup";
-import SignIn from "./pages/signin";
+import React from 'react';
+import './App.css';
+import Navbar from './Navbar';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from './pages';
+import About from './pages/about';
+import Teams from './pages/team';
+import SignUp from './pages/signup';
+import SignIn from './pages/signin';
 
 function App() {
   return (

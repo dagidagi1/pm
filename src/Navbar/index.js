@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Nav,
   NavLink,
@@ -6,7 +6,7 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
-} from "./NavbarElements";
+} from './NavbarElements';
 
 const Navbar = () => {
   return (
