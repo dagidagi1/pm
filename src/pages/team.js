@@ -8,7 +8,7 @@ const Teams = () => {
         <h2>Btsalel Koginsky</h2>
         <h2>Yossi Iluz</h2>
         <h2>Arkadi</h2>
-        <h2>Michal</h2>
+        <h2>Michael</h2>
       </h1>
     </div>
   );
