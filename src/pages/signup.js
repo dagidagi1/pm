@@ -11,7 +11,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import User from './user';
+// import User from './user';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -66,11 +66,11 @@ export default function SignUp() {
       phone.length > 9
     );
   }
-  const userList = [];
-  function creatUser(fname, lname, phone, email, password, keyId) {
-    const user = new User(fname, lname, phone, email, password, keyId);
-    userList.push(user);
-  }
+  // const userList = [];
+  // function creatUser(fname, lname, phone, email, password, keyId) {
+  //   const user = new User(fname, lname, phone, email, password, keyId);
+  //   userList.push(user);
+  // }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
