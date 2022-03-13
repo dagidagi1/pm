@@ -18,7 +18,7 @@ executors:
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
 jobs:
-  test-1:
+  linter:
     executor: node/default
     steps:
       - checkout
@@ -27,7 +27,7 @@ jobs:
 workflows:
   my-custom-workflow:
     jobs:
-      - test-1
+      - linter
       - node/test:
           # This is the node version to use for the `cimg/node` tag
           # Relevant tags can be found on the CircleCI Developer Hub
