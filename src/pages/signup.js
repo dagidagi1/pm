@@ -1,16 +1,17 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import User from './user';
+import React from "react";
+import { useNavigate } from "react-router";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import IconButton from "@material-ui/core/IconButton";
+import PhotoCamera from "@material-ui/icons/PhotoCamera";
+import User from "./user";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -44,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+  let navigate = useNavigate();
+  const routChange = (path) => {
+    navigate(path);
+  };
   const classes = useStyles();
   const [fName, setFname] = React.useState('');
   const [lName, setLname] = React.useState('');
@@ -117,6 +122,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                placeholder="joe@gmail.com"
                 id="email"
                 label="Email Address"
                 type="email"
@@ -183,7 +189,10 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
             disabled={!validate()}
-            onClick={creatUser(fName, lName, phone, email, password, 123)}
+            onClick={() => {
+              //creatUser(fName, lName, phone, email, password, 123);
+              routChange("/signin");
+            }}
           >
             Sign Up
           </Button>
