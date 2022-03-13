@@ -34,5 +34,5 @@ jobs:
 workflows:
   my-custom-workflow:
     jobs:
-      - linter
       - test1
+      - linter
