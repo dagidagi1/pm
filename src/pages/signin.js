@@ -1,13 +1,13 @@
-import React from "react";
-import { useNavigate } from "react-router";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import React from 'react';
+import {useNavigate} from 'react-router';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const routChange = (path) => {
     navigate(path);
   };
@@ -95,7 +95,7 @@ export default function SignUp() {
             className={classes.submit}
             disabled={!validate()}
             onClick={() => {
-              routChange("/about");
+              routChange('/about');
               alert(`welcome back ${email}`);
             }}
           >
