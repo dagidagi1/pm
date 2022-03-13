@@ -13,8 +13,8 @@ jobs:
     executor: my-custom-executor
     steps:
       - checkout
-      - run: npm run lint |
-          # echo Lint, completed!
+      - run: npm run lint
+      # echo Lint, completed!
 
 workflows:
   my-custom-workflow:
