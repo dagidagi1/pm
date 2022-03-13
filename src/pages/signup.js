@@ -12,7 +12,6 @@ import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import User from "./user";
-import SignIn from "./signin";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -123,6 +122,7 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                placeholder="joe@gmail.com"
                 id="email"
                 label="Email Address"
                 type="email"
