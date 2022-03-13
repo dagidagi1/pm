@@ -8,9 +8,28 @@ orbs:
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/betsalelkogo/ProjectManagement/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+jobs:
+  test-1:
+    executor: node/default
+    steps:
+      - checkout
+      - run: |
+          # echo Hello, World!
 workflows:
+  my-custom-workflow:
+    jobs:
+      - test-1
+  
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
     jobs:
       - node/test:
           # This is the node version to use for the `cimg/node` tag
