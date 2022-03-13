@@ -23,15 +23,16 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm run test
-  linter:
-    executor: node/default
-      steps:
-        - checkout
-        - run: npm install
-        - run: npm run lint
+      - run: npm test
+      - run: npm run lint
 workflows:
-  main-workflow:
+  my-custom-workflow:
     jobs:
       - test-1
-      - linter
+      - node/test:
+          # This is the node version to use for the `cimg/node` tag
+          # Relevant tags can be found on the CircleCI Developer Hub
+          # https://circleci.com/developer/images/image/cimg/node
+          version: '16.10'
+          # If you are using yarn, change the line below from "npm" to "yarn"
+          pkg-manager: npm
