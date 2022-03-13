@@ -11,21 +11,25 @@ orbs:
 executors:
   my-custom-executor:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node
         auth:
           # ensure you have first added these secrets
           # visit app.circleci.com/settings/project/github/betsalelkogo/ProjectManagement/environment-variables
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
 jobs:
-  linter:
-    executor: node/default
+  build:
+    executor: my-custom-executor
     steps:
       - checkout
       - run: npm install
+  linter:
+    executor: my-custom-executor
+    steps:
+      - checkout
       - run: npm run lint
   test1:
-    executor: node/default
+    executor: my-custom-executor
     steps:
       - checkout
       - run: npm run test
@@ -33,5 +37,10 @@ jobs:
 workflows:
   my-custom-workflow:
     jobs:
-      - test1
-      - linter
+      - build
+      - test1:
+          requires:
+            - build
+      - linter:
+          requires:
+            - build
