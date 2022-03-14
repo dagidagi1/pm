@@ -27,7 +27,7 @@ jobs:
           key: my-cache
           paths:
             - my-cache-file.txt
-            - my-project/my-dependencies-directory
+            - ProjectManagement/package-lock.json
   linter:
     executor: my-custom-executor
     steps:
