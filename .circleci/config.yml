@@ -14,7 +14,7 @@ jobs:
     executor: my-custom-executor
     steps:
       - checkout
-      - run: npm install
+      - run: xnpm install
   linter:
     executor: my-custom-executor
     steps:
