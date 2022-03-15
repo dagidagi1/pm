@@ -25,7 +25,7 @@
     "test": "mocha tests/*.spec.js --color",
     "eject": "react-scripts eject",
     "dev": "npm start",
-    "lint": "eslint --ext js,jsx,html src --color"
+    "lint": "eslint --ext js,jsx,html src --color" 
   },
   "eslintConfig": {
     "extends": [
