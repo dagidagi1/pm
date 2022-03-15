@@ -4,7 +4,7 @@ describe('Array', ()=>{
     describe('#sort', ()=>{
         it('should sort the array by name', ()=>{
             var names = ['misha','betsalel', 'dagi', 'yossi'];
-            expect(names.sort()).to.be.eql(['betsalel','dagi', 'misha', 'yossi']);
+            expect(names.sort()).to.be.eql(['betdsalel','dagi', 'misha', 'yossi']);
         });
     });
 });
