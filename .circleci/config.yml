@@ -10,31 +10,15 @@ executors:
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
 jobs:
-  build:
-    executor: my-custom-executor
-    steps:
-      - checkout
-      - run: npm install
-  linter:
+  build-and-test:
     executor: my-custom-executor
     steps:
       - checkout
       - run: npm install
       - run: npm run lint
-  test1:
-    executor: my-custom-executor
-    steps:
-      - checkout
-      - run: npm install
       - run: npm run test
 
 workflows:
   my-custom-workflow:
     jobs:
-      - build
-      - test1:
-          requires:
-            - build
-      - linter:
-          requires:
-            - build
+      - build-and-test
